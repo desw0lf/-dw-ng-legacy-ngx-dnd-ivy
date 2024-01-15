@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import * as dragulaNamespace from '@swimlane/dragula';
+import * as dragulaNamespace from 'ng2-dragula';
 import { DroppableDirective } from '../directives/ngx-droppable.directive';
 import { DraggableDirective } from '../directives/ngx-draggable.directive';
+import { dragula } from 'ng2-dragula';
+import { DrakeWithModels } from 'ng2-dragula/DrakeWithModels';
 
 // see https://github.com/dherges/ng-packagr/issues/217
-const dragula = dragulaNamespace;
+//const dragula = dragulaNamespace;
 
 /**
  * Central service that handles all events
@@ -17,11 +19,13 @@ export class DrakeStoreService {
   private droppableMap = new WeakMap<any, DroppableDirective>();
   private draggableMap = new WeakMap<any, DraggableDirective>();
   private dragulaOptions: dragulaNamespace.DragulaOptions;
-  private drake: dragulaNamespace.Drake;
+  private drake: DrakeWithModels;
+  private builder: dragulaNamespace.DrakeFactory;
 
   constructor() {
     this.dragulaOptions = this.createDrakeOptions();
-    this.drake = dragula([], this.dragulaOptions);
+    this.builder = new dragulaNamespace.DrakeFactory(dragula);
+    this.drake = this.builder.build([], this.dragulaOptions);
     this.registerEvents();
   }
 

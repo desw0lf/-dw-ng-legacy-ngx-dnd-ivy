@@ -22,6 +22,7 @@ import { config } from '../docspa.config';
 import { environment } from '../environments/environment';
 import { BuilderModule } from './builder/builder.module';
 import { AppRoutingModule } from './app-routing.module';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     BuilderModule,
     LoadingBarModule,
     LoadingBarHttpClientModule,
+    DragulaModule.forRoot(),
     LoggerModule.forRoot({ level: NgxLoggerLevel.WARN }),
     DocspaCoreModule.forRoot(config, environment),
     MarkdownModule.forRoot(preset),

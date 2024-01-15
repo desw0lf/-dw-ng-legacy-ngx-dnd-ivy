@@ -73,5 +73,6 @@ import 'zone.js'; // Included with Angular CLI.
 import '@ungap/global-this';
 
 window['global'] = globalThis as any;
+(window as any).global = window;
 window['process'] = window['process'] || require('process/browser');
 window['Buffer'] = window['Buffer'] || require('buffer').Buffer;

@@ -23,6 +23,7 @@ function getNextId() {
  * @export
  */
 @Directive({ selector: '[ngxDroppable]' })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class DroppableDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input() model: any;
   @Input() copy = false;
