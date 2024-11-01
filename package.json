@@ -29,7 +29,7 @@
     "version": "npm run changelog",
     "postversion": "npm run setMetadata && git add -A . && git commit --amend --no-edit",
     "scss-bundle": "scss-bundle -c ./projects/swimlane/ngx-dnd/scss-bundle.config.json",
-    "scss-build": "node-sass ./projects/swimlane/ngx-dnd/src/lib/ngx-dnd.scss ./dist/swimlane/ngx-dnd/release/index.css",
+    "scss-build": "sass ./projects/swimlane/ngx-dnd/src/lib/ngx-dnd.scss ./dist/swimlane/ngx-dnd/release/index.css",
     "copyFiles": "cpx \"./{CHANGELOG.md,README.md,LICENSE}\" ./dist/swimlane/ngx-dnd",
     "prepublish:lib": "run-s ci build:lib:prod",
     "publish:lib": "cd dist/swimlane/ngx-dnd && npm publish",
@@ -56,7 +56,7 @@
     "@swimlane/docspa-remark-preset": "^6.0.0",
     "@ungap/global-this": "^0.3.1",
     "@webcomponents/custom-elements": "^1.4.1",
-    "core-js": "3.39.0",
+    "core-js": "^3.20.2",
     "deepmerge": "^4.2.2",
     "ng2-dragula": "^5.0.1",
     "ngx-logger": "^4.1.3",
@@ -107,6 +107,7 @@
     "eslint-plugin-security": "^1.4.0",
     "husky": "^4.2.4",
     "ng-packagr": "^16.2.3",
+    "sass": "1.54.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "prettier-eslint": "^13.0.0",
@@ -121,7 +122,6 @@
   },
   "overrides": {
     "uuid": "~7.0.0",
-    "core-js": "$core-js",
     "@hapi/joi": "npm:joi@17.13.3",
     "@swimlane/docspa-core": {
       "@angular/common": "$@angular/common",
